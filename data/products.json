@@ -1,0 +1,8 @@
+{
+    "products": [
+        {"productTitle": "น้ำ", "productDescription": "น้ำสะอาด", "productProce": 40},
+        {"productTitle": "น้ำ2", "productDescription": "น้ำสะอาด2", "productProce": 50},
+        {"productTitle": "น้ำ3", "productDescription": "น้ำสะอาด3", "productProce": 60},
+        {"productTitle": "น้ำ4", "productDescription": "น้ำสะอาด4", "productProce": 70}
+    ]
+}

@@ -3,7 +3,8 @@ const chalk = require('chalk')
 const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
-const productsRouter = express.Router();
+const products = require("./data/products.json");
+const productRouter = express.Router();
 
 const app = express();
 const PORT = process.env.PORT;
@@ -14,16 +15,18 @@ app.use(express.static(path.join(__dirname,"/public/")));
 app.set("views","./src/views");
 app.set("view engine", "ejs")
 
-productsRouter.route("/").get((req,res) =>{
-    res.send("HI Go Go");
+productRouter.route("/").get((req,res) =>{
+    res.render("products",
+        products,
+    );
 });
 
-productsRouter.route("/1").get((req,res) =>{
+productRouter.route("/1").get((req,res) =>{
     res.send("HI Go Go 1");
 });
 
 
-app.use("/products",productsRouter)
+app.use("/products",productRouter)
 
 app.get("/", (req,res) => {
 
