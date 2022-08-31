@@ -5,18 +5,21 @@ const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname,"/public/")));
 
+app.set("views","./src/views");
+app.set("view engine", "ejs")
+
 app.get("/", (req,res) => {
 
-    res.send('Hello KK');
+    res.render('index',{username: 'VISSANU945', customers: ["KK","TT","PP"]});
 
 })
 
-app.listen(port, ()=>{
-    debug("Listening on port" + chalk.green(port));
+app.listen(PORT, ()=>{
+    debug("Listening on port" + chalk.blue(" : " + PORT));
 
 })
